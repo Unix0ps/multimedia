@@ -9,6 +9,8 @@
     <style>
         body { background-color: #f3f4f6; }
         canvas { display: block; margin: 0 auto; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
     </style>
 </head>
 <body class="font-sans text-gray-800">
@@ -24,10 +26,9 @@
 
     <section id="elementos-multimedia" class="py-8 px-4 bg-gray-100">
         <h2 class="text-2xl font-semibold mb-4">Elementos Multimedia</h2>
-        <video controls preload="metadata" class="w-full max-w-2xl mx-auto">
-            <source src="https://mega.nz/file/1htR0ZJa#A_5N8XlgOnRD-Iu2M2eXhg/file/Z0sEVC5a" type="video/mp4">
-            Tu navegador no soporta el elemento de video.
-        </video>
+        <div class="video-container w-full max-w-2xl mx-auto">
+            <iframe width="640" height="360" frameborder="0" src="https://mega.nz/embed/ghMTgDZS#mwQsR207W14DO-vPoQlrhJAZ23cUN3ywBaQQ_7Aexqs" allowfullscreen></iframe>
+        </div>
         <p class="mt-2 text-sm text-gray-600">Video creado con Kdenlive y procesado con FFmpeg, alojado en MEGA.</p>
     </section>
 
@@ -43,15 +44,15 @@
 
     <section id="video" class="py-8 px-4 bg-gray-100">
         <h2 class="text-2xl font-semibold mb-4">Video Resumen</h2>
-        <video controls preload="metadata" class="w-full max-w-2xl mx-auto">
-            <source src="https://mega.nz/file/1htR0ZJa#A_5N8XlgOnRD-Iu2M2eXhg/file/MwswRIaL" type="video/mp4">
-        </video>
+        <div class="video-container w-full max-w-2xl mx-auto">
+            <iframe width="640" height="360" frameborder="0" src="https://mega.nz/embed/ll8H2BiA#1hFYEBllKMnIlW0Ei4t-_q28pTElfjgnxmeVDLsU09Q" allowfullscreen></iframe>
+        </div>
         <p class="mt-2 text-sm text-gray-600">Video editado con Kdenlive y comprimido con FFmpeg, alojado en MEGA.</p>
     </section>
 
     <section id="acerca" class="py-8 px-4">
         <h2 class="text-2xl font-semibold mb-4">Acerca de</h2>
-        <p>Este sitio fue creado con software libre (Audacity, GIMP, Blender, Kdenlive, FFmpeg) en Linux, siguiendo los principios de programación multimedia del plan de estudios de la UNAM.</p>
+        <p>Este sitio fue creado con software libre (Audacity, GIMP, Blender, Kdenlive, FFmpeg) en Linux, siguiendo los principios de programación multimedia del plan de estudios de la UNAM. Las imágenes y animaciones fueron procesadas con Python y JavaScript (Three.js).</p>
     </section>
 
     <footer class="bg-blue-600 text-white py-4 text-center">
@@ -74,7 +75,7 @@
 
         function animate() {
             requestAnimationFrame(animate);
-            cube.rotation.x += 0.1;
+            cube.rotation.x += 0.01;
             cube.rotation.y += 0.01;
             renderer.render(scene, camera);
         }
