@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conflicto Irán-Israel 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        body { background-color: #f3f4f6; }
+        canvas { display: block; margin: 0 auto; }
+    </style>
+</head>
+<body class="font-sans text-gray-800">
+    <header class="bg-blue-600 text-white py-4">
+        <h1 class="text-3xl font-bold text-center">Conflicto Irán-Israel 2025</h1>
+    </header>
+
+    <section id="inicio" class="py-8 px-4">
+        <h2 class="text-2xl font-semibold mb-4">Resumen</h2>
+        <p class="mb-4">Este sitio explora el conflicto Irán-Israel de 2025 a través de elementos multimedia creados con software libre en Linux.</p>
+        <div id="linea-tiempo" class="w-full h-96"></div>
+    </section>
+
+    <section id="audio" class="py-8 px-4 bg-gray-100">
+        <h2 class="text-2xl font-semibold mb-4">Narración</h2>
+        <audio controls class="w-full max-w-md mx-auto">
+            <source src="narracion.mp3" type="audio/mpeg">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+        <p class="mt-2 text-sm text-gray-600">Narración creada con Audacity y procesada con FFmpeg.</p>
+    </section>
+
+    <section id="imagenes" class="py-8 px-4">
+        <h2 class="text-2xl font-semibold mb-4">Galería de Imágenes</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <img src="mapa.jpg" alt="Mapa del conflicto" class="w-full h-48 object-cover rounded">
+            <img src="infografia.jpg" alt="Infografía" class="w-full h-48 object-cover rounded">
+        </div>
+        <p class="mt-2 text-sm text-gray-600">Imágenes editadas con GIMP y procesadas con ImageMagick.</p>
+    </section>
+
+    <section id="video" class="py-8 px-4 bg-gray-100">
+        <h2 class="text-2xl font-semibold mb-4">Video Resumen</h2>
+        <video controls class="w-full max-w-2xl mx-auto">
+            <source src="https://mega.nz/file/<id>#<clave>" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+        </video>
+        <p class="mt-2 text-sm text-gray-600">Video editado con Kdenlive y comprimido con FFmpeg, alojado en MEGA.</p>
+    </section>
+
+    <section id="acerca" class="py-8 px-4">
+        <h2 class="text-2xl font-semibold mb-4">Acerca de</h2>
+        <p>Este sitio fue creado con software libre (Audacity, GIMP, Blender, Kdenlive, FFmpeg) en Linux, siguiendo los principios de programación multimedia del plan de estudios de la UNAM. Las imágenes y animaciones fueron procesadas con Python y JavaScript (Three.js).</p>
+    </section>
+
+    <footer class="bg-blue-600 text-white py-4 text-center">
+        <p>Creado con software libre en Linux | 2025</p>
+    </footer>
+
+    <script>
+        // Animación con Three.js para la línea de tiempo
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / 400, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth * 0.8, 400);
+        document.getElementById('linea-tiempo').appendChild(renderer.domElement);
+
+        const geometry = new THREE.BoxGeometry(1, 1, 1);
+        const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+        const cube = new THREE.Mesh(geometry, material);
+        scene.add(cube);
+        camera.position.z = 5;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            cube.rotation.x += 0.01; // Corregido de cube.ix a cube.rotation.x
+            cube.rotation.y += 0.01;
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+            renderer.setSize(window.innerWidth * 0.8, 400);
+            camera.aspect = window.innerWidth / 400;
+            camera.updateProjectionMatrix();
+        });
+    </script>
+</body>
+</html>
