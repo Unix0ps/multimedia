@@ -22,28 +22,29 @@
         <div id="linea-tiempo" class="w-full h-96"></div>
     </section>
 
-    <section id="audio" class="py-8 px-4 bg-gray-100">
-        <h2 class="text-2xl font-semibold mb-4">Vídeo</h2>
-        <audio controls class="w-full max-w-md mx-auto">
-            <source src="https://mega.nz/folder/1htR0ZJa#A_5N8XlgOnRD-Iu2M2eXhg/file/MwswRIaL" type="audio/mpeg">
-            
-        </audio>
-        <p class="mt-2 text-sm text-gray-600">Narración creada con Audacity y procesada con FFmpeg.</p>
+    <section id="elementos-multimedia" class="py-8 px-4 bg-gray-100">
+        <h2 class="text-2xl font-semibold mb-4">Elementos Multimedia</h2>
+        <video controls preload="metadata" class="w-full max-w-2xl mx-auto">
+            <source src="https://mega.nz/file/1htR0ZJa#A_5N8XlgOnRD-Iu2M2eXhg/file/Z0sEVC5a" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+        </video>
+        <p class="mt-2 text-sm text-gray-600">Video creado con Kdenlive y procesado con FFmpeg, alojado en MEGA.</p>
     </section>
 
     <section id="imagenes" class="py-8 px-4">
         <h2 class="text-2xl font-semibold mb-4">Galería de Imágenes</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            <img src="infografia.png" alt="Infografía" class="w-full max-w-full max-h-96 object-contain rounded">
+        <div class="grid grid-cols-1 gap-4">
+            <a href="infografia.png" target="_blank">
+                <img src="infografia.png" alt="Infografía" class="w-full max-w-full max-h-[50rem] object-contain rounded">
+            </a>
         </div>
-        <p class="mt-2 text-sm text-gray-600">Imágenes editadas con GIMP y procesadas con ImageMagick.</p>
+        <p class="mt-2 text-sm text-gray-600">Infografía editada con GIMP y procesada con ImageMagick. Haz clic en la imagen para verla en tamaño completo.</p>
     </section>
 
     <section id="video" class="py-8 px-4 bg-gray-100">
         <h2 class="text-2xl font-semibold mb-4">Video Resumen</h2>
-        <video controls class="w-full max-w-2xl mx-auto">
-            <source src="https://mega.nz/folder/1htR0ZJa#A_5N8XlgOnRD-Iu2M2eXhg/file/Z0sEVC5a" type="video/mp4">
-            Tu navegador no soporta el elemento de video.
+        <video controls preload="metadata" class="w-full max-w-2xl mx-auto">
+            <source src="https://mega.nz/file/1htR0ZJa#A_5N8XlgOnRD-Iu2M2eXhg/file/MwswRIaL" type="video/mp4">
         </video>
         <p class="mt-2 text-sm text-gray-600">Video editado con Kdenlive y comprimido con FFmpeg, alojado en MEGA.</p>
     </section>
@@ -73,7 +74,7 @@
 
         function animate() {
             requestAnimationFrame(animate);
-            cube.rotation.x += 0.01; // Corregido de cube.ix a cube.rotation.x
+            cube.rotation.x += 0.1;
             cube.rotation.y += 0.01;
             renderer.render(scene, camera);
         }
